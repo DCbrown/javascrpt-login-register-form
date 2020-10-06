@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form Validator</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Register -->
+        <div class="row justify-content-center" id="register">
+            <div class="col-md-8">
+                <div class="card">
+                    <div class="card-header">Register</div>
+                    <div class="card-body">
+                        <form id="formReg" class="form-horizontal" method="post" action="#">
+                            <div class="form-group">
+                                <label for="name" class="cols-sm-2 control-label">Your Name</label>
+                                <div class="cols-sm-10">
+                                    <div class="input-group">
+                                        <span class="input-group-addon"><i class="fa fa-user fa"
+                                                aria-hidden="true"></i></span>
+                                        <input type="text" class="form-control" name="name" id="name"
+                                            placeholder="Enter your Name" required minlength="3" maxlength="100"/>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="email" class="cols-sm-2 control-label">Your Email</label>
+                                <div class="cols-sm-10">
+                                    <div class="input-group">
+                                        <span class="input-group-addon"><i class="fa fa-envelope fa"
+                                                aria-hidden="true"></i></span>
+                                        <input type="email" class="form-control" name="email" id="email"
+                                            placeholder="Enter your Email" required/>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="phone" class="cols-sm-2 control-label">Phone Number</label>
+                                <div class="cols-sm-10">
+                                    <div class="input-group">
+                                        <span class="input-group-addon"><i class="fa fa-users fa"
+                                                aria-hidden="true"></i></span>
+                                        <input type="tel" class="form-control" name="phone" id="phone"
+                                            placeholder="123-123-1234" required pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"/>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="website" class="cols-sm-2 control-label">Website URL</label>
+                                <div class="cols-sm-10">
+                                    <div class="input-group">
+                                        <span class="input-group-addon"><i class="fa fa-users fa"
+                                                aria-hidden="true"></i></span>
+                                        <input type="url" class="form-control" name="website" id="website"
+                                            placeholder="http://yourwebsite.com" required />
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="password1" class="cols-sm-2 control-label">Password</label>
+                                <div class="cols-sm-10">
+                                    <div class="input-group">
+                                        <span class="input-group-addon"><i class="fa fa-lock fa-lg"
+                                                aria-hidden="true"></i></span>
+                                        <input type="password" class="form-control" name="password1" id="password1"
+                                        placeholder="Create Password (Min. 8 characters)" required 
+                                        pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}$"
+                                        title="Please include at least 1 uppercase character, 1 lowercase character, and 1 number.">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="confirm" class="cols-sm-2 control-label">Confirm Password</label>
+                                <div class="cols-sm-10">
+                                    <div class="input-group">
+                                        <span class="input-group-addon"><i class="fa fa-lock fa-lg"
+                                                aria-hidden="true"></i></span>
+                                        <input type="password" class="form-control" name="password" id="password2"
+                                            placeholder="Confirm your Password" required pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}$"/>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group ">
+                                <button type="submit"
+                                    class="btn btn-primary btn-lg btn-block login-button">Register</button>
+                            </div>
+                            <div class="message-container">
+                                <h3 id="message"></h3>
+                              </div>
+                            <div class="login-register">
+                                <a id="loginLink" href="#" onclick="return goToLogin();">Go to Login</a>
+                            </div>
+                        </form>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <!-- Login -->
+        <div class="row justify-content-center" id="login">
+            <div class="col-md-8">
+                <div class="card">
+                    <div class="card-header">Login</div>
+                    <div class="card-body">
+                        <form id="formLog" class="form-horizontal" method="post" action="#">
+                            
+                            <div class="form-group">
+                                <label for="email" class="cols-sm-2 control-label">Email</label>
+                                <div class="cols-sm-10">
+                                    <div class="input-group">
+                                        <span class="input-group-addon"><i class="fa fa-envelope fa"
+                                                aria-hidden="true"></i></span>
+                                        <input type="text" class="form-control login" name="email" id="email" required/>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="password" class="cols-sm-2 control-label">Password</label>
+                                <div class="cols-sm-10">
+                                    <div class="input-group">
+                                        <span class="input-group-addon"><i class="fa fa-lock fa-lg"
+                                                aria-hidden="true"></i></span>
+                                        <input type="password" class="form-control login" id="password" required/>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="form-group ">
+                                <button type="submit"
+                                    class="btn btn-primary btn-lg btn-block login-button">login</button>
+                            </div>
+                            <div class="message-container">
+                                <h5 id="message2"></h5>
+                            </div>
+                            <div class="login-register">
+                                <a id="regLink" href="#" onclick="return goToRegister();">Need to Register?</a>
+                            </div>
+                        </form>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <!-- User Info-->
+        <div id="userInfo">
+            <div class="card userCard">
+                <img src="https://www.svgrepo.com/show/122119/user-image-with-black-background.svg" class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title text-center" id="info-name""></h5>
+                    <div class="card-text">
+                      <p>Email: <span id="info-email"></span></p>
+                      <p>Phone: <span id="info-phone"></span></p>  
+                      <p>Website: <span id="info-website"></span></p>  
+                    </div>
+                    <a href="#" onclick="return logOut();" class="btn btn-primary stretched-link">Log Out</a>
+                    <a href="#" onclick="return removeAccount();" class="btn btn-primary stretched-link">Remove Account</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+
+</html>

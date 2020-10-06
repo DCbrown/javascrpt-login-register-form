@@ -1,0 +1,51 @@
+@import url("https://fonts.googleapis.com/css?family=Sen&display=swap");
+
+input:valid {
+  border: 1px solid green;
+}
+
+input:invalid {
+  border: 1px solid red;
+}
+
+.login:valid {
+  border: 1px solid black;
+}
+
+.login:invalid {
+  border: 1px solid black;
+}
+
+#message2 {
+  color: red;
+  text-align: center;
+}
+
+.message-container {
+  width: 90%;
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+  color: black;
+}
+
+#login {
+    display: none;
+}
+
+#register {
+    display: block;
+}
+
+#userInfo {
+  display: none;
+}
+
+.userCard{
+  margin-top: 20px;
+  width: 400px;
+}
+
+img{
+  height: 200px;
+}
